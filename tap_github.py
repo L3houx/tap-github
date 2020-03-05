@@ -28,7 +28,7 @@ KEY_PROPERTIES = {
     'pr_commits': ['id'],
     'events': ['id'],
     'issue_labels': ['id'],
-    'issue_milestones': ['id'],
+    'milestones': ['id'],
     'pull_request_reviews': ['id'],
     'commit_comments': ['id'],
     'projects': ['id'],
@@ -296,7 +296,7 @@ def get_all_events(schemas, repo_path, state, mdata):
 
     return state
 
-def get_all_issue_milestones(schemas, repo_path, state, mdata):
+def get_all_milestones(schemas, repo_path, state, mdata):
     # Incremental sync off `due on` ??? confirm.
     # https://developer.github.com/v3/issues/milestones/#list-milestones-for-a-repository
     # 'https://api.github.com/repos/{}/milestones?sort=created_at&direction=desc'.format(repo_path)
@@ -838,7 +838,7 @@ SYNC_FUNCTIONS = {
     'releases': get_all_releases,
     'stargazers': get_all_stargazers,
     'events': get_all_events,
-    'issue_milestones': get_all_issue_milestones,
+    'milestones': get_all_milestones,
     'issue_labels': get_all_issue_labels,
     'projects': get_all_projects,
     'commit_comments': get_all_commit_comments,
