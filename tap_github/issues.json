@@ -1,6 +1,12 @@
 {
   "properties": {
-    "state": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "node_id": {
       "type": [
         "null",
         "string"
@@ -10,6 +16,80 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "repository_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "labels_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "comments_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "events_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user": {
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "labels": {
@@ -41,62 +121,45 @@
         }
       }
     },
-    "repository_url": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "assignees": {
+      "type": ["null", "array"],
+      "assignee": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "login": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
     },
-    "number": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "closed_at": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "format": "date-time"
-    },
-    "labels_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assignee": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "format": "date-time"
-    },
-    "html_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "author_association": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "milestones":{
+      "type": ["null", "array"],
+      "milestone": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
     },
     "locked": {
       "type": [
@@ -104,10 +167,10 @@
         "boolean"
       ]
     },
-    "events_url": {
+    "comments": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "pull_request": {
@@ -142,23 +205,12 @@
         "object"
       ]
     },
-    "node_id": {
+    "closed_at": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "comments": {
-      "type": [
-        "null",
-        "integer"
-      ]
+      ],
+      "format": "date-time"
     },
     "created_at": {
       "type": [
@@ -167,136 +219,15 @@
       ],
       "format": "date-time"
     },
-    "_sdc_repository": {
-      "type": ["string"]
-    },
-    "user": {
-      "properties": {
-        "repos_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "starred_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "received_events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "site_admin": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "gravatar_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "following_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "organizations_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "html_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "subscriptions_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "node_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "followers_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "gists_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "comments_url": {
+    "updated_at": {
       "type": [
         "null",
         "string"
-      ]
+      ],
+      "format": "date-time"
+    },
+    "_sdc_repository": {
+      "type": ["string"]
     }
   },
   "type": [

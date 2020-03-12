@@ -12,7 +12,7 @@ from singer import metadata
 session = requests.Session()
 logger = singer.get_logger()
 
-REQUIRED_CONFIG_KEYS = ['access_token', 'repository']
+REQUIRED_CONFIG_KEYS = ['access_token', 'repository', 'start_date']
 
 KEY_PROPERTIES = {
     'commits': ['sha'],
@@ -44,7 +44,7 @@ class AuthException(Exception):
 class NotFoundException(Exception):
     pass
 
-def translate_state(state, catalog, repositories):
+def translate_state(state, catalog, repositories, start_date):
     '''
     This tap used to only support a single repository, in which case the
     state took the shape of:
@@ -79,11 +79,12 @@ def translate_state(state, catalog, repositories):
     for stream in catalog['streams']:
         stream_name = stream['tap_stream_id']
         for repo in repositories:
+            if datetime(int(start_date[0:4]), int(start_date[5:7]), int(start_date[8:10])) + timedelta(1) > datetime.now():
+                state['bookmarks'][repo][stream_name]['since'] = "2000-01-01"
             if bookmarks.get_bookmark(state, repo, stream_name):
                 return state
             if bookmarks.get_bookmark(state, stream_name, 'since'):
                 new_state['bookmarks'][repo][stream_name]['since'] = bookmarks.get_bookmark(state, stream_name, 'since')
-
     return new_state
 
 
@@ -852,6 +853,7 @@ SUB_STREAMS = {
 
 def do_sync(config, state, catalog):
     access_token = config['access_token']
+    start_date = config['start_date']
     session.headers.update({'authorization': 'token ' + access_token})
 
     # get selected streams, make sure stream dependencies are met
@@ -860,7 +862,7 @@ def do_sync(config, state, catalog):
 
     repositories = list(filter(None, config['repository'].split(' ')))
 
-    state = translate_state(state, catalog, repositories)
+    state = translate_state(state, catalog, repositories, start_dateo)
     singer.write_state(state)
 
     for repo in repositories:
