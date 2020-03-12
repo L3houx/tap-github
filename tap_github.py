@@ -7,6 +7,7 @@ import singer.bookmarks as bookmarks
 import singer.metrics as metrics
 import collections
 
+from datetime import datetime, timedelta
 from singer import metadata
 
 session = requests.Session()
