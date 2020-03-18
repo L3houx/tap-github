@@ -863,7 +863,7 @@ def do_sync(config, state, catalog):
 
     repositories = list(filter(None, config['repository'].split(' ')))
 
-    state = translate_state(state, catalog, repositories, start_dateo)
+    state = translate_state(state, catalog, repositories, start_date)
     singer.write_state(state)
 
     for repo in repositories:
