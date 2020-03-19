@@ -14,9 +14,12 @@
         }
       }
     },
-    "starred_at": {
+    "started_at": {
       "type": ["null", "string"],
       "format": "date-time"
+    },
+    "user_id": {
+      "type": ["null", "integer"]
     }
   }
 }

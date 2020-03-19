@@ -123,7 +123,7 @@
     },
     "assignees": {
       "type": ["null", "array"],
-      "assignee": {
+      "items": {
         "properties": {
           "id": {
             "type": [
